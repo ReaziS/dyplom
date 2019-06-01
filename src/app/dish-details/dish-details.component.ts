@@ -10,8 +10,10 @@ import { EventEmitter } from 'events';
   styleUrls: ['./dish-details.component.css']
 })
 export class DishDetailsComponent implements OnInit {
+  public userRole;
   public counter = 1;
   dish: Dishes;
+  public basket: Array<Dishes> = [];
   constructor(
     private route: ActivatedRoute,
     private dishesService: DishesService,
@@ -19,12 +21,20 @@ export class DishDetailsComponent implements OnInit {
 ) { }
 
   ngOnInit() {
-    this.getEmployee();
+    if (localStorage.getItem('role')) {
+      this.userRole = localStorage.getItem('role');
+    }
+    this.getDish();
   }
-  getEmployee(): void {
+  getDish(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.dishesService.getDish(id)
     .subscribe(dish => this.dish = dish);
+  }
+  updateDish(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.dishesService.updateDish(id, this.dish)
+     .subscribe(() => this.goBack());
   }
   goBack() {
     this.location.back();
@@ -38,7 +48,21 @@ export class DishDetailsComponent implements OnInit {
       this.counter = 1;
     }
   }
-  addToCard(dish: string): void {
-
+  addToCard(): void {
+    console.log(this.basket);
+    console.log(this.dish);
+    if (localStorage.getItem('basket')) {
+      this.basket = JSON.parse(localStorage.getItem('basket')) as Array<Dishes>;
+        for (let i = 0; i < this.counter; i++) {
+          this.basket.push(this.dish);
+        }
+        localStorage.removeItem('basket');
+        localStorage.setItem('basket', JSON.stringify(this.basket));
+    } else {
+      for (let i = 0; i < this.counter; i++) {
+        this.basket.push(this.dish);
+      }
+      localStorage.setItem('basket', JSON.stringify(this.basket));
+    }
   }
 }

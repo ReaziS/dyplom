@@ -1,5 +1,5 @@
-<div class="main-container">
-  <app-card-panel [dish]="dish"></app-card-panel>
+<div class="main-container"  *ngIf="userRole !== 'admin'">
+  <app-card-panel></app-card-panel>
   <div class="product-wrapper" *ngIf="dish">
     <div class="product-container">
       <div class="product-img">
@@ -18,7 +18,47 @@
               <div class="counter-left" (click)="increaseCounter()" unselectable="on">&#9658;</div>
             </div>
           </div>
-          <button (click)="addToCard(dish)" class="add-to-basket__button">Добавить в корзину</button>
+          <button (click)="addToCard()" class="add-to-basket__button">Добавить в корзину</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-container"  *ngIf="userRole === 'admin'">
+  <app-card-panel></app-card-panel>
+  <div class="product-wrapper" *ngIf="dish">
+    <div class="product-container">
+      <div class="product-img group">
+        <img src="{{dish.img}}" alt="">
+      </div>
+      <div class="product-info-container">
+        <div class="product-info">
+          <div class="group">
+              <input [(ngModel)]="dish.img" placeholder="name"/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+          </div>
+          <div class="group">
+              <input [(ngModel)]="dish.type" placeholder="name"/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+          </div>
+          <div class="group">
+            <input [(ngModel)]="dish.dishName" placeholder="name"/>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+          </div>
+          <div class="group">
+              <input [(ngModel)]="dish.cost" placeholder="name"/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+          </div>
+          <div class="group">
+              <input [(ngModel)]="dish.description" placeholder="name"/>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+          </div>
+          <button (click)="updateDish()" class="add-to-basket__button">Сохранить изменения</button>
         </div>
       </div>
     </div>

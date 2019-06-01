@@ -30,7 +30,7 @@
       <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
           <div class="form-group">
               <label>Employee name</label>
-              <input class="form-control" placeholder="{{employee.description}}" name="employeeName" ngModel readonly/>
+              <input class="form-control" placeholder="{{employee.firstName}}" name="employeeName" type="text" ngModel/>
           </div>
         <div class="form-group">
             <label>Your name</label>
@@ -40,11 +40,6 @@
             <label>Email</label>
             <input class="form-control" name="email" ngModel 
                 required email />
-        </div>
-        <div class="form-group">
-            <label>Phone (in format +375(**)1234567</label>
-            <input class="form-control" placeholder="+375(**)1234567" name="phone" ngModel 
-                required minlength="15" />
         </div>
         <div class="form-group">
             <label>Comment</label>

@@ -1,0 +1,17 @@
+<div class="header-wrapper">
+    <div class="header-container">
+        <div class="return-prev-container">
+          <span (click)="goMain()" class="return-prev">На главную</span>
+          <span class="link-split">
+            &nbsp;/&nbsp;
+          </span>
+          <span (click)="goBack()" class="return-prev"> Назад</span>
+        </div>
+        <div *ngIf="currentLocation === 'dish'">
+          <span routerLink="/add/dishes">Добавить</span>
+        </div>
+        <div *ngIf="currentLocation === 'employee'">
+            <span class="return-prev" routerLink="/add/employee">Добавить</span>
+        </div>
+    </div>
+  </div>

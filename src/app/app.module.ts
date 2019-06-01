@@ -12,11 +12,19 @@ import { HeaderNavigationComponent } from './header-navigation/header-navigation
 import { ListOfRequestsComponent } from './list-of-requests/list-of-requests.component';
 import { RequestsComponent } from './requests/requests.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DishesComponent } from './dishes/dishes.component';
 import { BasketComponent } from './basket/basket.component';
 import { DishDetailsComponent } from './dish-details/dish-details.component';
 import { CardPanelComponent } from './card-panel/card-panel.component';
+import { AdminEmployeeEditComponent } from './admin-employee-edit/admin-employee-edit.component';
+import { AdminDishEditComponent } from './admin-dish-edit/admin-dish-edit.component';
+import { AdminComplaintsComponent } from './admin-complaints/admin-complaints.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
+import { AddDishesComponent } from './add-dishes/add-dishes.component';
+import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
+import { AdminDishEditUpdateComponent } from './admin-dish-edit-update/admin-dish-edit-update.component';
+import { AdminEmployeeEditUpdateComponent } from './admin-employee-edit-update/admin-employee-edit-update.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +40,21 @@ import { CardPanelComponent } from './card-panel/card-panel.component';
     DishesComponent,
     BasketComponent,
     DishDetailsComponent,
-    CardPanelComponent
+    CardPanelComponent,
+    AdminEmployeeEditComponent,
+    AdminDishEditComponent,
+    AdminComplaintsComponent,
+    AdminOrdersComponent,
+    AddDishesComponent,
+    AdminNavigationComponent,
+    AdminDishEditUpdateComponent,
+    AdminEmployeeEditUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

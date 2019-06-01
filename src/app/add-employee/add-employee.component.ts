@@ -13,8 +13,6 @@ export class AddEmployeeComponent implements OnInit {
 
   private isLogined = false;
   private clicked = false;
-  private id;
-  public newImg;
   employees: Employee[];
   constructor(private employeeService: EmployeeService, private loginService: LoginService) { }
 

@@ -1,4 +1,6 @@
 <div class="details-wrapper" *ngIf="employee">
+  <div *ngIf="userRole !== 'admin'">
+  <app-card-panel></app-card-panel>
   <div class="info-container">
     <div class="item-upper">
       <div class="item-upper-img"><img src="{{employee.img}}"></div>
@@ -31,5 +33,55 @@
       <li class="list-group-item list-group-item-secondary">{{employee.position}}</li>
     </ul>
     <button class="btn btn-info" (click)="goBack()">go back</button>
+  </div>
+  </div>
+  <div *ngIf="userRole === 'admin'">
+  <app-card-panel></app-card-panel>
+   <div class="info-container">
+    <div class="item-upper">
+      <div class="item-upper-img"><img src="{{employee.img}}"></div>
+      <div class="item-upper-name"><span class="item-name-size">{{employee.firstName}}  {{employee.secondName}}</span></div>
+    </div>
+    <ul class="list-group">
+        <div class="group">
+            <input type="text" [(ngModel)]="employee.img"/>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+          </div>
+      <div class="group">
+        <input type="text" [(ngModel)]="employee.firstName"/>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+      </div>
+      <label>Фамилия</label>
+      <div class="group">
+        <input type="text" [(ngModel)]="employee.secondName"/>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="group">
+        <input type="text" [(ngModel)]="employee.lastName"/>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="group">
+        <input type="text" [(ngModel)]="employee.birthday"/>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="group">
+        <input type="text" [(ngModel)]="employee.post"/>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+      </div>
+      <div class="group">
+      <input type="text" [(ngModel)]="employee.position"/>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      </div>
+    </ul>
+    <button (click)="updateEmployee()" >Сохранить изменения</button>
+    <button class="btn btn-info" (click)="goBack()">Вернуться</button>
+  </div>
   </div>
 </div>

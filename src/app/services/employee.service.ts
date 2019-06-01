@@ -3,7 +3,6 @@ import { Employee } from '../employee';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { Account } from '../account';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,10 +26,9 @@ export class EmployeeService {
     catchError(this.handleError<Employee>(`getEmployee id=${id}`))
     );
   }
-  updateBike(employee: Employee): Observable<Employee> {
-    return this.http.put<Employee>(this.employeeUrl, employee, httpOptions).pipe(
-      catchError(this.handleError<Employee>('update Employee'))
-    );
+  updateEmployee(id: string, employee: Employee): Observable<Employee> {
+    const updateUrl = `${this.employeeUrl}/${id}`;
+    return this.http.put<Employee>(updateUrl, employee, httpOptions);
   }
   addEmployee(employee: Employee): Observable<Employee> {
     return this.http.post<Employee>(this.employeeUrl, employee, httpOptions).pipe(
@@ -44,7 +42,6 @@ export class EmployeeService {
       catchError(this.handleError<any>('delete Employee'))
     );
   }
-
 
 
 

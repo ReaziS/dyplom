@@ -1,0 +1,10 @@
+<app-admin-navigation></app-admin-navigation>
+<li *ngFor="let request of submitForm">
+  {{request.employeeName}}
+  {{request.clientName}}
+  {{request.email}}
+  {{request.comment}}
+  <div>
+      <button (click)="deleteRequest(request.id)">Удалить</button>
+  </div>
+</li>

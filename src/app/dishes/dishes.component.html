@@ -10,9 +10,7 @@
           <div class="card-body">
             <h4 class="card-title">{{dish.dishName}}</h4>
             <p class="card-text">{{dish.cost}} руб.</p>
-            <a class="btn btn-primary" routerLink="/dishDetails/{{dish.id}}">Подробнее</a>
-            
-            <a class="btn btn-danger btn-buy-position">В корзину</a>
+            <a class="return-prev" routerLink="/dishDetails/{{dish._id}}">Подробнее</a>
           </div>
         </div>
       </li>

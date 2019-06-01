@@ -14,6 +14,6 @@ export class CardPanelComponent implements OnInit {
   ngOnInit() {
   }
   goBack(): void {
-    this.router.navigate(['/dishes']);
+    this.location.back();
   }
 }

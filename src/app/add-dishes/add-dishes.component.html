@@ -1,0 +1,41 @@
+<app-admin-navigation></app-admin-navigation>
+<form [formGroup]="form">
+  
+  <label>
+    First Name:
+    <input type="text" formControlName="type">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="dishName">
+  </label>
+  <label>
+    Last Name:
+    <input type="text" formControlName="cost">
+  </label>
+  <label>
+    Last Name:
+    <input type="text" formControlName="description">
+  </label>
+  <label>
+    Last Name:
+    <input type="text" formControlName="img">
+  </label>
+
+  <div formArrayName="items"
+  *ngFor="let item of form.get('items').controls; let i = index;">
+  <div [formGroupName]="i">
+    <select formControlName="name" placeholder="Item name">
+      <option *ngFor="let item of ingredients" [value]="item.ingredientName">
+        {{item.ingredientName}}
+      </option>
+    </select>
+    <input formControlName="quantity" placeholder="Item price" type="number">
+  </div>
+  <button (click)="addItem()">Add item</button>
+  Chosen name: {{ form.controls.items.controls[i].controls.name.value }}
+</div>
+<button (click)="addDish()">Submit</button>
+
+</form>

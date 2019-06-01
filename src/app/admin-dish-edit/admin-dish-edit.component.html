@@ -1,0 +1,21 @@
+<app-admin-navigation></app-admin-navigation>
+<div class="middle-container">
+  <div class="product-grid" *ngIf="dishes">
+    <div class="product-grid-box fadeInDown">
+      <li *ngFor="let dish of dishes">
+        <div class="card">
+          <a routerLink="/dishDetails/{{dish.id}}">
+            <img class="card-img-top card-img_size" src="{{dish.img}}" alt="Card image" style="width:100%">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">{{dish.dishName}}</h4>
+            <p class="card-text">{{dish.cost}} руб.</p>
+            <a class="btn btn-primary" routerLink="/dishDetails/{{dish.id}}">Подробнее</a>
+            
+            <a class="btn btn-danger btn-buy-position" (click)="deleteDish(dish.id)">Удалить</a>
+          </div>
+        </div>
+      </li>
+    </div>
+  </div>
+</div>

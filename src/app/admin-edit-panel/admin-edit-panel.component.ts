@@ -9,17 +9,8 @@ import { Employee } from '../employee';
 })
 export class AdminEditPanelComponent implements OnInit {
 
-  constructor(private employeeService: EmployeeService) { }
-  employees: Employee[];
+  constructor() { }
   ngOnInit() {
-    this.getEmployees();
-  }
-  getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
-  }
-  deleteEmployee(id: string): void {
-    console.log(id);
-    this.employeeService.deleteEmployee(id).subscribe( _ => this.getEmployees());
   }
 
 }

@@ -1,13 +1,15 @@
 <div class="header-wrapper">
   <div class="header-container">
       <div class="return-prev-container">
-      <span (click)="goBack()" class="return-prev">На главную</span>
+      <span (click)="goBack()" class="return-prev">Назад</span>
     </div>
     <div class="title-container">
       <img src="https://pp.userapi.com/c851436/v851436229/12b019/fb0ZFW9NjnY.jpg" alt="">
     </div>
     <div class="basket">
-      <app-basket [currentDish]="dish"></app-basket>
+      <a routerLink="/basket">
+        <img src="https://pp.userapi.com/c851436/v851436229/12afa3/bY6db_gRRoA.jpg" alt="">
+      </a>
     </div>
   </div>
 </div>

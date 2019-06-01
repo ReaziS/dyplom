@@ -1,3 +1,13 @@
-<div class="basket">
-  <img src="https://pp.userapi.com/c851436/v851436229/12afa3/bY6db_gRRoA.jpg" alt="">
+<div class="basket-wrapper">
+  <div class="basket-container">
+    <li class="dish-item" *ngFor="let dish of unicItem">
+      <div class="dish-img"><img routerLink="/dishDetails/{{dish.id}}" src="{{dish.img}}" alt=""></div>
+      <div class="dish-name"><span routerLink="/dishDetails/{{dish.id}}">{{dish.dishName}}</span></div>
+      <div class="counter-container">
+        <div class="counter-left" (click)="decreaseCounter()" unselectable="on">&#9668;</div>
+        <div class="dish-name dish-counter">{{dish.counter}} шт.</div>
+        <div class="counter-left" (click)="increaseCounter()" unselectable="on">&#9658;</div>
+      </div>
+    </li>
+  </div>
 </div>

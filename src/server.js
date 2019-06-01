@@ -37,36 +37,24 @@ app.get('/employees/:id', (req, res) =>{
   })
 });
 app.put('/employees/:id' , (req, res) =>{
-  db.collection('Bikes').updateOne(
+  console.log(req.body);
+  db.collection('employees').updateOne(
     {_id: objectID(req.params.id)},
-    { $set: {name: req.body.name,
+    { $set: {firstName: req.body.firstName,
+      secondName: req.body.secondName,
+      lastName: req.body.lastName,
+      birthday: req.body.birthday,
+      post: req.body.post,
+      position: req.body.position,
+      salaryRate: req.body.salaryRate,
       description: req.body.description,
-      bikeNumber: req.body.bikeNumber,
-      frame: req.body.frame,
-      brakeSet: req.body.brakeSet,
-      crankSet: req.body.crankSet,
-      bbSet: req.body.bbSet,
-      chain: req.body.chain,
-      frHub: req.body.frHub,
-      gearSet: req.body.gearSet,
-      rim: req.body.rim,
-      spokes: req.body.spokes,
-      tireAndTube: req.body.tireAndTube,
-      saddle: req.body.saddle,
-      seatPost: req.body.seatPost,
-      pedals: req.body.pedals,
-      accessories: req.body.accessories,
-      motorAndBattery: req.body.motorAndBattery,
-      systerm: req.body.systerm,
-      decal: req.body.decal,
-      packing: req.body.packing,
       img: req.body.img,
     }}, (err, result) => { 
       if (err) {
         console.log(err);
         return res.sendStatus(500);
       }
-      res.sendStatus(200);
+      res.send('200');
     });
 });
 app.delete('/employees/:id' , (req, res) =>{
@@ -115,13 +103,13 @@ app.post('/employees', function (req, res) {
 });
 app.post('/request', (req, res) => {
   var request = {
+    employeeName: req.body.employeeName,
     clientName: req.body.clientName,
     email: req.body.email,
-    phone: req.body.phone,
     comment: req.body.comment
   };
   console.log(request);
-  db.collection('Requests').insertOne((request), (err, result) => {
+  db.collection('requests').insertOne((request), (err, result) => {
     if (err) {
       console.log(err);
       return res.sendStatus(500);
@@ -130,7 +118,7 @@ app.post('/request', (req, res) => {
   });
 });
 app.get('/request', (req, res) => {
-  db.collection('Requests').find().toArray((err, docs) =>{
+  db.collection('requests').find().toArray((err, docs) =>{
     if(err) {
       console.log(err);
       return res.sendStatus(500);
@@ -143,7 +131,7 @@ app.get('/request', (req, res) => {
   })
 });
 app.delete('/request/:id' , (req, res) =>{
-  db.collection('Requests').deleteOne(
+  db.collection('requests').deleteOne(
     {_id: objectID(req.params.id)},
     (err, result) => { 
       if (err) {
@@ -231,5 +219,43 @@ app.get('/dishes/:id', (req, res) =>{
     console.log(doc.id);
     console.log(doc._id);
     res.send(doc)
+  })
+});
+app.put('/dishes/:id' , (req, res) =>{
+  db.collection('dishes').updateOne(
+    {_id: objectID(req.params.id)},
+    { $set: {type: req.body.type,
+      dishName: req.body.dishName,
+      cost: req.body.cost,
+      description: req.body.description,
+      img: req.body.img
+    }}, (err, result) => { 
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      }
+      res.send('200');
+    });
+});
+app.delete('/dishes/:id' , (req, res) =>{
+  console.log(req.params.id);
+  db.collection('dishes').deleteOne(
+    {_id: objectID(req.params.id)},
+    (err, result) => { 
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      }
+    });
+  res.send('200');
+
+});
+app.get('/ingredients', (req, res) => {
+  db.collection('ingredients').find().toArray((err, docs) =>{
+    if(err) {
+      console.log(err);
+      return res.sendStatus(500);
+    }
+    res.send(docs);
   })
 });

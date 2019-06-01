@@ -21,4 +21,14 @@ export class DishesService {
   getDish(id: string): Observable<Dishes> {
     return this.http.get<Dishes>(`${this.URL}/${id}`);
   }
+  updateDish(id: string, dish: Dishes): Observable<Dishes> {
+    const updateUrl = `${this.URL}/${id}`;
+    return this.http.put<Dishes>(updateUrl, dish, httpOptions);
+  }
+  deleteDish(id: string): any {
+    const url = `${this.URL}/${id}`;
+    return this.http.delete(url).pipe(
+      tap(() => console.log(`Блюдо ${id} удален`))
+    );
+  }
 }

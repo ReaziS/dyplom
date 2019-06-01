@@ -1,27 +1,24 @@
-<div class="middle-container">
-  <div class="product-grid">
-    <div class="product-grid-box fadeInDown">
-      <li *ngFor="let employees of employees">
-        <div class="card" style="width:300px">
-          <a routerLink="/details/{{employees.id}}">
-            <img class="card-img-top card-img_size" src="{{employees.img}}" alt="Card image" style="width:100%">
-          </a>
-          <div class="card-body">
-            <h4 class="card-title">{{employees.firstName}}  {{employees.secondName}} </h4>
-            <p class="card-text">{{employees.descrption}}</p>
-            <div сlass="lower-buttons_position">
-              <a class="btn btn-primary" routerLink="/details/{{employees.id}}">Подробнее</a>
-              <button class="btn btn-danger" (click)="deleteEmployee(employees.id)">Удалить</button>
-            </div>
-          </div>
-        </div>
-      </li>
+<div class="nav-container">
+  <div class="flex">
+    <div class="edit-item col-1-4" routerLink="/admin/edit/dish">
+      <div class="module item">
+        DISHES
+      </div>
+    </div>
+    <div class="edit-item col-1-4" routerLink="/admin/edit/employee">
+      <div class="module item">
+        EMPLOYEE
+      </div>
+    </div>
+    <div class="edit-item col-1-4" routerLink="/admin/orders">
+      <div class="module item">
+        ORDERS
+      </div>
+    </div>
+    <div class="edit-item col-1-4" routerLink="/admin/complains">
+      <div class="module item">
+        COMPLAINS
+      </div>
     </div>
   </div>
 </div>
-<a routerLink="/add">
-  Добавить
-</a>
-<a routerLink="/listofrequests">
-  Список запросов
-</a>

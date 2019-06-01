@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class EmployeeDetailsComponent implements OnInit {
   employee: Employee;
+  public userRole;
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService,
@@ -18,12 +19,20 @@ export class EmployeeDetailsComponent implements OnInit {
 ) { }
 
   ngOnInit() {
+    if (localStorage.getItem('role')) {
+      this.userRole = localStorage.getItem('role');
+    }
     this.getEmployee();
   }
   getEmployee(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.employeeService.getEmployee(id)
     .subscribe(employee => this.employee = employee);
+  }
+  updateEmployee(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.employeeService.updateEmployee(id, this.employee)
+     .subscribe(() => this.goBack());
   }
   goBack() {
     this.location.back();
