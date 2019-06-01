@@ -1,0 +1,68 @@
+.main-container {
+    margin: 0 auto;
+}
+h1 {
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.product-wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+}
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+.product-img {
+    padding-right: 100px;
+}
+.product-info-container {
+    padding-left: 30px;
+    margin-right: 200px;
+}
+.product-info {
+    max-width: 600px;
+}
+.dish-cost {
+    display: flex; 
+    margin-bottom: 40px;
+    font-size: 26px;
+    line-height: 1px;
+    color: #ff6800;
+}
+p {
+    line-height: 1.8;
+    font-size: 24px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: #777;
+}
+.counter-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.dish-quantity-title, .quantity-counter {
+    display: flex;
+    align-items: center;
+}
+.dish-quantity-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+}
+.counter-container{
+    display: flex;
+    justify-content: center;
+}
+.counter-left,  .counter-right {
+    font-size: 30px;
+    margin: 10px;
+    transition: 0.2;
+    cursor: pointer;
+}
+
+.quantity-counter {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}

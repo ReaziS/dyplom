@@ -1,0 +1,10 @@
+.basket {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+}
+.basket img { 
+    width: 45px;
+    height: 45px;
+}

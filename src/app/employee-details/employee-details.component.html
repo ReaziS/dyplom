@@ -1,0 +1,35 @@
+<div class="details-wrapper" *ngIf="employee">
+  <div class="info-container">
+    <div class="item-upper">
+      <div class="item-upper-img"><img src="{{employee.img}}"></div>
+      <div class="item-upper-name"><span class="item-name-size">{{employee.firstName}}  {{employee.secondName}}</span></div>
+    </div>
+    <ul class="list-group">
+      <label>
+        Имя
+      </label>
+      <li class="list-group-item">{{employee.firstName}}</li>
+      <label>
+        Фамилия
+      </label>
+      <li class="list-group-item list-group-item-secondary">{{employee.secondName}}</li>
+      <label>
+        Отчество
+      </label>
+      <li class="list-group-item">{{employee.lastName}}</li>
+      <label>
+        Дата рождения
+      </label>
+      <li class="list-group-item list-group-item-secondary">{{employee.birthday}}</li>
+      <label>
+        Позиция
+      </label>
+      <li class="list-group-item">{{employee.post}}</li>
+      <label>
+        Должность
+      </label>
+      <li class="list-group-item list-group-item-secondary">{{employee.position}}</li>
+    </ul>
+    <button class="btn btn-info" (click)="goBack()">go back</button>
+  </div>
+</div>

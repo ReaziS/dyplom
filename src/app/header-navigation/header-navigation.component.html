@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Ресторан ДРУЗЬЯ</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav" id="status-switch">
+      <a class="nav-item nav-link wait-status" href="#">На главную</a>
+      <a class="nav-item nav-link wait-status" routerLink="/employee">Сотрудники</a>
+      <a class="nav-item nav-link wait-status" routerLink="/dishes">Блюда</a>
+      <a class="nav-item nav-link wait-status" href="#">Связаться с нами</a>
+      <div *ngIf="yourRole === 'admin' || yourRole === 'employee' ">
+        <button (click)="logOut()">Log out</button>
+      </div>
+    </div>
+  </div>
+</nav>

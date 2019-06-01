@@ -1,0 +1,20 @@
+<div class="middle-container">
+  <div class="product-grid">
+    <div class="product-grid-box fadeInDown">
+      <li *ngFor="let employees of employees">
+        <div class="card" style="width:300px">
+          <a routerLink="/details/{{employees.id}}">
+            <img class="card-img-top card-img_size" src="{{employees.img}}" alt="Card image" style="width:100%">
+          </a>
+          <div class="card-body">
+            <h4 class="card-title">{{employees.firstName}}  {{employees.secondName}} </h4>
+            <p class="card-text">{{employees.descrption}}</p>
+            <a class="btn btn-primary" routerLink="/details/{{employees.id}}">Details</a>
+            
+            <a class="btn btn-danger btn-buy-position" routerLink="/complain/{{employees.id}}">Complain</a>
+          </div>
+        </div>
+      </li>
+    </div>
+  </div>
+</div>

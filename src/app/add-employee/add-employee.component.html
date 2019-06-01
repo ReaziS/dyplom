@@ -1,0 +1,61 @@
+<div class="form-group">
+    <div class="form-group">
+      <label>login:
+        <input #login>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>password:
+        <input #password>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>First name:
+        <input #firstName>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Second Name
+        <input #secondName />
+      </label>
+    </div>
+    <div class="form-group">
+      <label>last name:
+        <input #lastName />
+      </label>
+    </div>
+    <div class="form-group">
+      <label>birthday:
+        <input #birthday />
+      </label>
+    </div>
+    <div class="form-group">
+      <label>post:
+        <input #post />
+      </label>
+    </div>
+    <div class="form-group">
+      <label>position:
+        <input #position />
+      </label>
+    </div>
+    <div class="form-group">
+      <label>salary rate:
+        <input #salaryRate />
+      </label>
+    </div>
+    <div class="form-group">
+      <label>description:
+        <input #description />
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>IMAGE (link):
+        <input #img />
+      </label>
+    </div>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="addEmployee((login.value),(password.value),(firstName.value),(secondName.value),(lastName.value),(birthday.value),(post.value),(position.value),(salaryRate.value),(description.value),(img.value))">
+      Add bike
+    </button>

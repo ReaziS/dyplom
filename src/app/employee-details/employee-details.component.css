@@ -1,0 +1,32 @@
+.info-container{
+    margin: 0 auto;
+    max-width: 80%;
+}
+.item-upper{
+    display: flex;
+    justify-content: space-between;
+}
+.item-upper-img img{
+    max-width: 400px;
+    max-height: 300px;
+}
+.item-upper-name{
+    display: flex;
+    width: 100%;
+    padding: 0px 40px;
+}
+.item-name-size{
+    display: block;
+    margin: auto;
+    font-size: 32px;
+}
+.details-wrapper{
+    margin: 0 auto;
+    max-width: 1440px;
+}
+label{
+    font-size: 16px;
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-bottom: 2px
+}

@@ -1,0 +1,59 @@
+<div class="middle-container">
+  <div class="table-container">
+    <table *ngIf="ifSuccess === false" class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Сотрудник</th>
+          <th scope="col">Имя</th>
+          <th scope="col">Фамилия</th>
+          <th scope="col">Описание</th>
+          <th scope="col">Подтверждение</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="employee">
+          <th scope="row"><img src="{{employee.img}}" width="150px" height="100px"> </th>
+          <td><a routerLink="/details/{{employee.id}}">{{employee.firstName}}</a></td>
+          <td>{{employee.secondName}}</td>
+          <td>{{employee.description}}</td>
+          <td>
+            <button class="btn btn-success" (click)="onComplain()">
+              Подтверждение
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fadeInDown form-wrapper">
+    <div class="fadeInDown form-container" *ngIf="ifSuccess === true">
+      <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+          <div class="form-group">
+              <label>Employee name</label>
+              <input class="form-control" placeholder="{{employee.description}}" name="employeeName" ngModel readonly/>
+          </div>
+        <div class="form-group">
+            <label>Your name</label>
+            <input class="form-control" name="clientName" ngModel required />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" name="email" ngModel 
+                required email />
+        </div>
+        <div class="form-group">
+            <label>Phone (in format +375(**)1234567</label>
+            <input class="form-control" placeholder="+375(**)1234567" name="phone" ngModel 
+                required minlength="15" />
+        </div>
+        <div class="form-group">
+            <label>Comment</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" ngModel></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" [disabled]="myForm.invalid || clicked" class="btn btn-danger" value="Send" />
+        </div>
+    </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="main-container">
+  <app-card-panel [dish]="dish"></app-card-panel>
+  <div class="product-wrapper" *ngIf="dish">
+    <div class="product-container">
+      <div class="product-img">
+        <img src="{{dish.img}}" alt="">
+      </div>
+      <div class="product-info-container">
+        <div class="product-info">
+          <h1>{{dish.dishName}}</h1>
+          <span class="dish-cost">{{dish.cost}} руб.</span>
+          <p>{{dish.description}}</p>
+          <div class="counter-wrapper">
+            <div class="dish-quantity-title">Количество</div>
+            <div class="counter-container">
+              <div class="counter-left" (click)="decreaseCounter()" unselectable="on">&#9668;</div>
+              <div class="quantity-counter">{{counter}}</div>
+              <div class="counter-left" (click)="increaseCounter()" unselectable="on">&#9658;</div>
+            </div>
+          </div>
+          <button (click)="addToCard(dish)" class="add-to-basket__button">Добавить в корзину</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
