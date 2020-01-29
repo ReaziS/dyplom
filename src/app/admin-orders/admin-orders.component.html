@@ -1,1 +1,36 @@
 <app-admin-navigation></app-admin-navigation>
+<div class="wrapper">
+    <div class="order-container">
+        <li class="order-list" *ngFor="let userOrder of userOrders">
+            <div class="show-info-container">
+                <div (click)="deleteOrder(userOrder.id)">X</div>
+                <div *ngFor="let item of userOrder.userOrderItem">
+                    {{item.dishName}}  x{{item.counter}} <span class="cost-color">{{item.dishTotalCost}}</span>
+                </div>
+                    <div class="user-hiden-info">
+                        <div>
+                            Имя: {{userOrder.clientName}}
+                        </div>
+                        <div>
+                            Улица: {{userOrder.streetName}}
+                        </div>
+                        <div>
+                            Номер дома: {{userOrder.houseNumber}}
+                        </div>
+                        <div>
+                            Квартира: {{userOrder.flatNumber}}
+                        </div>
+                        <div>
+                            Телефон: {{userOrder.phone}}
+                        </div>
+                        <div>
+                            Комментарий: {{userOrder.comment}}
+                        </div>
+                    </div>
+                <div class="cost-container">
+                   Сумма <span class="cost-color">{{userOrder.orderTotalCost}}</span> руб.
+                </div>
+            </div>
+        </li>
+    </div>
+</div>

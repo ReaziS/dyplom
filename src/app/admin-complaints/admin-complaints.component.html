@@ -1,10 +1,23 @@
 <app-admin-navigation></app-admin-navigation>
-<li *ngFor="let request of submitForm">
-  {{request.employeeName}}
-  {{request.clientName}}
-  {{request.email}}
-  {{request.comment}}
-  <div>
-      <button (click)="deleteRequest(request.id)">Удалить</button>
+  <div class="wrapper">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Имя сотрудника</th>
+        <th scope="col">Имя клиента</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Комментарий</th>
+        <th scope="col">Подтверждение</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of submitForm">
+        <th scope="row">{{request.employeeName}}</th>
+        <td>{{request.clientName}}</td>
+        <td>{{request.email}}</td>
+        <td>{{request.comment}}</td>
+        <td><button class="btn btn-danger" (click)="deleteRequest(request.id)">Удалить</button></td>
+      </tr>
+    </tbody>
+  </table>
   </div>
-</li>

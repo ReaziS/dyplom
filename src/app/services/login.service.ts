@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { REMOTE_URL } from '../../app/serverURL.js';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -9,7 +10,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoginService {
-  private URL = '/api';
+  private URL = REMOTE_URL ? `${REMOTE_URL}` : '';
 
   constructor(private http: HttpClient) {
   }

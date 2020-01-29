@@ -1,6 +1,5 @@
 <div class="details-wrapper" *ngIf="employee">
   <div *ngIf="userRole !== 'admin'">
-  <app-card-panel></app-card-panel>
   <div class="info-container">
     <div class="item-upper">
       <div class="item-upper-img"><img src="{{employee.img}}"></div>
@@ -32,11 +31,10 @@
       </label>
       <li class="list-group-item list-group-item-secondary">{{employee.position}}</li>
     </ul>
-    <button class="btn btn-info" (click)="goBack()">go back</button>
+    <button class="btn btn-info" (click)="goBack()">Вернуться</button>
   </div>
   </div>
   <div *ngIf="userRole === 'admin'">
-  <app-card-panel></app-card-panel>
    <div class="info-container">
     <div class="item-upper">
       <div class="item-upper-img"><img src="{{employee.img}}"></div>
@@ -80,8 +78,8 @@
       <span class="bar"></span>
       </div>
     </ul>
-    <button (click)="updateEmployee()" >Сохранить изменения</button>
-    <button class="btn btn-info" (click)="goBack()">Вернуться</button>
+    <button class="btn btn-info apply-changes-button" (click)="goBack()">Вернуться</button>
+    <button class="btn btn-success" (click)="updateEmployee()" >Сохранить изменения</button>
   </div>
   </div>
 </div>

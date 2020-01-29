@@ -3,6 +3,7 @@ import { Employee } from '../employee';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { REMOTE_URL } from '../../app/serverURL.js';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -11,8 +12,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class EmployeeService {
-  private employeeUrl = '/api/employees';
-  private employeeRegisterUrl = this.employeeUrl + '/account' ;
+  private employeeUrl =  REMOTE_URL ? `${REMOTE_URL}/employees` : '/employees';
+  private employeeRegisterUrl =  REMOTE_URL ? this.employeeUrl + `${REMOTE_URL}/account` : this.employeeUrl + `/account` ;
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<Employee[]> {

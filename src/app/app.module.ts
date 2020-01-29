@@ -25,6 +25,7 @@ import { AddDishesComponent } from './add-dishes/add-dishes.component';
 import { AdminNavigationComponent } from './admin-navigation/admin-navigation.component';
 import { AdminDishEditUpdateComponent } from './admin-dish-edit-update/admin-dish-edit-update.component';
 import { AdminEmployeeEditUpdateComponent } from './admin-employee-edit-update/admin-employee-edit-update.component';
+import { CheckboxGroupComponent } from './checkbox-group/checkbox-group.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AdminEmployeeEditUpdateComponent } from './admin-employee-edit-update/a
     AddDishesComponent,
     AdminNavigationComponent,
     AdminDishEditUpdateComponent,
-    AdminEmployeeEditUpdateComponent
+    AdminEmployeeEditUpdateComponent,
+    CheckboxGroupComponent
   ],
   imports: [
     BrowserModule,

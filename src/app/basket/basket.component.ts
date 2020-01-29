@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Dishes } from '../Dishes';
+import { UserOrderService } from '../services/user-order.service';
+import { NgForm } from '@angular/forms';
+import { UserOrderItems } from '../userOrderItems';
 
 @Component({
   selector: 'app-basket',
@@ -12,7 +15,10 @@ export class BasketComponent implements OnInit {
   public countOfEveryItem = [];
   public prev;
   public counter;
-  constructor() { }
+  public dishTotalCost: number;
+  public orderTotalCost: number;
+  private ifSuccess = false;
+  constructor(private userOrderService: UserOrderService) { }
 
   ngOnInit() {
     if (localStorage.getItem('basket')) {
@@ -30,7 +36,11 @@ export class BasketComponent implements OnInit {
       }
       for ( let i = 0; i < this.unicItem.length; i++) {
         this.unicItem[i]['counter'] = this.countOfEveryItem[i];
+        this.unicItem[i]['dishTotalCost'] = parseFloat(this.unicItem[i]['cost']) * +this.unicItem[i]['counter'];
       }
+      this.orderTotalCost = this.unicItem.reduce((accumulator, currentValue) => accumulator + currentValue.dishTotalCost, 0);
+      this.orderTotalCost = parseFloat(this.orderTotalCost.toFixed(2));
+      console.log(this.orderTotalCost);
   }
 }
 increaseCounter(): void {
@@ -42,8 +52,25 @@ decreaseCounter(): void {
     this.counter = 1;
   }
 }
-  check(): void {
-    console.log(this.userBasket);
-  }
+onOrder(): void {
+  this.ifSuccess = true;
+}
+onSubmit(form: NgForm) {
+  const dto = {
+    clientName: form.value.clientName,
+    streetName: form.value.streetName,
+    houseNumber: form.value.houseNumber,
+    flatNumber: form.value.flatNumber,
+    phone: form.value.phone,
+    comment: form.value.comment,
+    orderTotalCost: this.orderTotalCost,
+    userOrderItem: this.unicItem as UserOrderItems[]
+  };
+  this.userOrderService.sendUserOrder(dto).subscribe(_ => {
+    console.log('object');
+    localStorage.removeItem('basket');
+  });
+}
+
 
 }

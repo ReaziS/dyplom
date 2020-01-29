@@ -4,6 +4,7 @@ import { tap, catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { LoginService } from './login.service';
 import { SubmitForm } from '../submitForm';
+import { REMOTE_URL } from '../../app/serverURL.js';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -12,7 +13,7 @@ const httpOptions = {
 })
 
 export class RequestService {
-  private url = '/api/request';
+  private url =  REMOTE_URL ? `${REMOTE_URL}/request` : '/request';
   constructor(private http: HttpClient, private loginService: LoginService) { }
   getRequests(): Observable<SubmitForm[]> {
     if (this.loginService.getRole() !== 'user') {

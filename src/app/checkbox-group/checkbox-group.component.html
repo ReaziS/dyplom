@@ -1,0 +1,6 @@
+<div *ngFor="let item of options">
+  <label class="pure-material-checkbox">
+    <input type="checkbox" [(ngModel)]="item.checked" (change)="onToggle()">
+    <span>{{item.russianLabel}}</span>
+    </label>
+</div>

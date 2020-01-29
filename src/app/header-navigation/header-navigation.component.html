@@ -11,7 +11,7 @@
       <a class="nav-item nav-link wait-status" href="#">Связаться с нами</a>
       <a class="nav-item nav-link wait-status" routerLink="/admin">Админ</a>
       <div *ngIf="yourRole === 'admin' || yourRole === 'employee' ">
-        <button (click)="logOut()">Log out</button>
+        <button class="btn btn-light" (click)="logOut()">Log out</button>
       </div>
     </div>
   </div>

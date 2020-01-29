@@ -1,8 +1,11 @@
 <app-card-panel></app-card-panel>
 <div class="middle-container">
-  <div class="product-grid" *ngIf="dishes">
+  <div class="product-grid" *ngIf="displayedDishes">
+      <div class="filter-container">
+          <app-checkbox-group [options]="dishOptions" (toggle)="onItemsChecked($event)"></app-checkbox-group>
+      </div>
     <div class="product-grid-box fadeInDown">
-      <li *ngFor="let dish of dishes">
+      <li *ngFor="let dish of displayedDishes">
         <div class="card">
           <a routerLink="/dishDetails/{{dish.id}}">
             <img class="card-img-top card-img_size" src="{{dish.img}}" alt="Card image" style="width:100%">

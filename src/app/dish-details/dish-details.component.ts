@@ -49,8 +49,6 @@ export class DishDetailsComponent implements OnInit {
     }
   }
   addToCard(): void {
-    console.log(this.basket);
-    console.log(this.dish);
     if (localStorage.getItem('basket')) {
       this.basket = JSON.parse(localStorage.getItem('basket')) as Array<Dishes>;
         for (let i = 0; i < this.counter; i++) {
@@ -64,5 +62,7 @@ export class DishDetailsComponent implements OnInit {
       }
       localStorage.setItem('basket', JSON.stringify(this.basket));
     }
+    this.goBack();
+
   }
 }

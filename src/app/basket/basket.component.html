@@ -1,5 +1,6 @@
 <div class="basket-wrapper">
-  <div class="basket-container">
+  <div class="basket-container" *ngIf="ifSuccess === false">
+    <div class="basket-title"><h1>Ваш заказ</h1></div>
     <li class="dish-item" *ngFor="let dish of unicItem">
       <div class="dish-img"><img routerLink="/dishDetails/{{dish.id}}" src="{{dish.img}}" alt=""></div>
       <div class="dish-name"><span routerLink="/dishDetails/{{dish.id}}">{{dish.dishName}}</span></div>
@@ -8,6 +9,44 @@
         <div class="dish-name dish-counter">{{dish.counter}} шт.</div>
         <div class="counter-left" (click)="increaseCounter()" unselectable="on">&#9658;</div>
       </div>
+      <div class="dish-cost"><span>{{dish.dishTotalCost}} руб</span></div>
     </li>
+    <div> <button class="btn btn-success basket-title" (click)="onOrder()">Заказать ({{orderTotalCost}} руб)</button></div>
+  </div>
+  <div class="fadeInDown form-wrapper">
+    <div class="fadeInDown form-container" *ngIf="ifSuccess === true">
+      <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+          <div class="form-group">
+              <label>Ваше имя</label>
+              <input class="form-control" name="clientName" type="text" ngModel/>
+          </div>
+        <div class="form-group">
+            <label>Улица</label>
+            <input class="form-control" name="streetName" ngModel required />
+        </div>
+        <div class="form-group">
+            <label>Дом</label>
+            <input class="form-control" name="houseNumber" ngModel 
+                required />
+        </div>
+        <div class="form-group">
+          <label>Квартира</label>
+          <input class="form-control" name="flatNumber" ngModel 
+              required />
+      </div>
+      <div class="form-group">
+        <label>Телефон</label>
+        <input class="form-control" name="phone" ngModel 
+            required />
+    </div>
+        <div class="form-group">
+            <label>Comment</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" ngModel></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" [disabled]="myForm.invalid || clicked" class="btn btn-danger" value="Подтвердить" />
+        </div>
+    </form>
+    </div>
   </div>
 </div>

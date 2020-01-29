@@ -1,62 +1,73 @@
 <app-admin-navigation></app-admin-navigation>
-<div class="form-group">
-    <div class="form-group">
-      <label>login:
-        <input #login>
-      </label>
-    </div>
-    <div class="form-group">
-      <label>password:
-        <input #password>
-      </label>
-    </div>
-    <div class="form-group">
-      <label>First name:
-        <input #firstName>
-      </label>
-    </div>
-    <div class="form-group">
-      <label>Second Name
-        <input #secondName />
-      </label>
-    </div>
-    <div class="form-group">
-      <label>last name:
-        <input #lastName />
-      </label>
-    </div>
-    <div class="form-group">
-      <label>birthday:
-        <input #birthday />
-      </label>
-    </div>
-    <div class="form-group">
-      <label>post:
-        <input #post />
-      </label>
-    </div>
-    <div class="form-group">
-      <label>position:
-        <input #position />
-      </label>
-    </div>
-    <div class="form-group">
-      <label>salary rate:
-        <input #salaryRate />
-      </label>
-    </div>
-    <div class="form-group">
-      <label>description:
-        <input #description />
-      </label>
-    </div>
-
-    <div class="form-group">
-      <label>IMAGE (link):
-        <input #img />
-      </label>
-    </div>
+<div class="container">
+      <div class="group">      
+        <input type="text" #login required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Логин</label>
+      </div>
+      <div class="group">      
+        <input type="password" #password required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Пароль</label>
+      </div>
+      <div class="group">      
+        <input type="text" #firstName required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Имя</label>
+      </div>
+      <div class="group">      
+        <input type="text" #secondName required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Фамилия</label>
+      </div>
+      <div class="group">      
+        <input type="text" #lastName required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Отчество</label>
+      </div>
+      <div class="group">      
+        <input type="text" #birthday required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Дата рождения</label>
+      </div>
+      <div class="group">      
+        <input type="text" #post required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Должность</label>
+      </div>
+      <div class="group">      
+        <input type="text" #position required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Позиция</label>
+      </div>
+      <div class="group">      
+        <input type="text" #salaryRate required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Зарплата (ставка)</label>
+      </div>
+      <div class="group">      
+        <input type="text" #description required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Описание</label>
+      </div>
+      <div class="group">      
+        <input type="text" #img required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Картинка (ссылка)</label>
+      </div>
+      <button class="button-submit" (click)="addEmployee((login.value),(password.value),(firstName.value),(secondName.value),(lastName.value),(birthday.value),(post.value),(position.value),(salaryRate.value),(description.value),(img.value))">
+          Добавить сотрудника
+        </button>
+</div>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="addEmployee((login.value),(password.value),(firstName.value),(secondName.value),(lastName.value),(birthday.value),(post.value),(position.value),(salaryRate.value),(description.value),(img.value))">
-      Add bike
-    </button>

@@ -1,41 +1,53 @@
 <app-admin-navigation></app-admin-navigation>
-<form [formGroup]="form">
-  
-  <label>
-    First Name:
-    <input type="text" formControlName="type">
-  </label>
+<div class="container">
+  <form [formGroup]="form">
 
-  <label>
-    Last Name:
-    <input type="text" formControlName="dishName">
-  </label>
-  <label>
-    Last Name:
-    <input type="text" formControlName="cost">
-  </label>
-  <label>
-    Last Name:
-    <input type="text" formControlName="description">
-  </label>
-  <label>
-    Last Name:
-    <input type="text" formControlName="img">
-  </label>
-
-  <div formArrayName="items"
-  *ngFor="let item of form.get('items').controls; let i = index;">
-  <div [formGroupName]="i">
-    <select formControlName="name" placeholder="Item name">
-      <option *ngFor="let item of ingredients" [value]="item.ingredientName">
-        {{item.ingredientName}}
-      </option>
-    </select>
-    <input formControlName="quantity" placeholder="Item price" type="number">
-  </div>
-  <button (click)="addItem()">Add item</button>
-  Chosen name: {{ form.controls.items.controls[i].controls.name.value }}
+    <div class="group">      
+      <input type="text" formControlName="type" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Тип</label>
+    </div>
+    <div class="group">      
+      <input type="text" formControlName="dishName" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Название блюда</label>
+    </div>
+    <div class="group">      
+      <input type="text" formControlName="cost" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Цена</label>
+    </div>
+    <div class="group">      
+      <input type="text" formControlName="description" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Описание</label>
+    </div>
+    <div class="group">      
+      <input type="text" formControlName="img" required>
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Картинка</label>
+    </div>
+    <div class="selected-ingredient" formArrayName="items"
+      *ngFor="let item of form.get('items').controls; let i = index;">
+      <div class="select" [formGroupName]="i">
+        <select class="select-text" formControlName="name" placeholder="Item name">
+          <option *ngFor="let item of ingredients" [value]="item.ingredientName">
+            {{item.ingredientName}}
+          </option>
+        </select>
+        <span class="select-highlight"></span>
+        <span class="select-bar"></span>
+        <label class="select-label">Выберите ингридиент</label>
+        <input formControlName="quantity" placeholder="Количество" type="number">
+      </div>
+     <!-- Выбранный ингридиент: {{ form.controls.items.controls[i].controls.name.value }}-->
+    </div>
+  <button class="btn btn-light add-item-ico" (click)="addItem()"><img src="http://image.flaticon.com/icons/png/128/150/150507.png" alt=""></button>
+  </form>
+  <button class="btn btn-success" (click)="addDish()">Добавить</button>
 </div>
-<button (click)="addDish()">Submit</button>
-
-</form>

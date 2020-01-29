@@ -116,7 +116,7 @@ input:focus ~ .highlight {
 }
 
 .info-container{
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
     max-width: 80%;
 }
 .item-upper{
@@ -146,4 +146,7 @@ label{
     font-weight: bolder;
     margin-top: 20px;
     margin-bottom: 2px
+}
+.apply-changes-button {
+  margin-right: 30px;
 }

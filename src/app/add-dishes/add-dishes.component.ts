@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { IngredientsService } from '../services/ingredients.service';
 import { Ingredient } from '../ingredient';
+import { DishesService } from '../services/dishes.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-dishes',
@@ -10,7 +12,8 @@ import { Ingredient } from '../ingredient';
 })
 export class AddDishesComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private ingredientsService: IngredientsService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private fb: FormBuilder, private ingredientsService: IngredientsService, private dishesService: DishesService, private location: Location) { }
   public form: FormGroup;
   items: FormArray;
   public ingredients: Ingredient[];
@@ -42,8 +45,10 @@ export class AddDishesComponent implements OnInit {
   getIngredients(): void {
     this.ingredientsService.getIngredient().subscribe(ingredient => this.ingredients = ingredient);
   }
-
+goBack() {
+  this.location.back();
+}
   addDish(): void {
-    console.log(this.form.getRawValue());
+    this.dishesService.addDish(this.form.getRawValue()).subscribe(_ => this.goBack());
   }
 }
